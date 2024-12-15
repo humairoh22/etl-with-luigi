@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres:
+    image: shandytp/amazon-sales-data-docker-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password123
+      POSTGRES_DB: etl_db
+    ports:
+      -  5432:5432
+
+
+
+
