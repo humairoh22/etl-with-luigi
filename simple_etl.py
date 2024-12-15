@@ -220,7 +220,7 @@ class LoadData(luigi.Task):
                df=sales_data,
                table_name="sales",
                if_row_exists='update',
-               create_table=True)
+               create_table=False)
         
         produk_data = pd.read_csv(self.input()[1].path)
         produk_data.insert(0, 'no_id', range(0, 0 + len(produk_data)))
@@ -230,7 +230,7 @@ class LoadData(luigi.Task):
                df=produk_data,
                table_name="products",
                if_row_exists='update',
-               create_table=True)
+               create_table=False)
         
         scrape_data = pd.read_csv(self.input()[2].path)
         scrape_data.insert(0, 'no_id', range(0, 0 + len(scrape_data)))
@@ -240,7 +240,7 @@ class LoadData(luigi.Task):
             df=scrape_data,
             table_name="articlescrape",
             if_row_exists='update',
-            create_table=True)
+            create_table=False)
 
 
 if __name__ == "__main__":
