@@ -9,12 +9,25 @@ An ETL pipeline project to store data from various sources into database Postgre
 - Team Data Scientist want to do research to find pattern what makes news trending topic. But, they dont have any data needed so that they need help to scrape data from news portal.
 
 ## Solutions
-- Extract data from different sources.
+Create ETL pipeline to:
+- Extract data from different sources. 
 - Do data validation to know deeper what inside of these data. 
-- Transforming each data based on what we found when exploring the data.
+- Transforming each data source based on what we found when exploring the data.
 - Load all data into one database PosgtreSQL.
 
+## Pipeline Design
 
+## How To Run The Script?
+1. Clone the repository.
+   ```
+   git clone https://github.com/humairoh22/etl-with-luigi.git
+   ```
+2. Run docker compose where the data sales store with this command.
+   ```
+   cd dockerfile
+   docker compose up -d
+   ```
+   
 
 
 
