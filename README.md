@@ -27,7 +27,14 @@ Create ETL pipeline to:
    cd dockerfile
    docker compose up -d
    ```
-3. 
+3. activate virtual environment.
+   ```
+   source venv/bin/activate
+   ```
+4. Install depedencies to run the script.
+   ```
+   pip -r requirements.txt
+   ```
    
 
 
