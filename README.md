@@ -10,8 +10,8 @@ An ETL pipeline project to store data from various sources into database Postgre
 
 ## Solutions
 Create ETL pipeline to:
-- Extract data from different sources. 
-- Do data validation to know deeper what inside of these data. 
+- Extract data from different sources. For team DS will scrape data from a website.
+- Do data validation to know deeper what inside of these data, the columns that need to transform, and etc.
 - Transforming each data source based on what we found when exploring the data.
 - Load all data into one database PosgtreSQL.
 
@@ -22,11 +22,12 @@ Create ETL pipeline to:
    ```
    git clone https://github.com/humairoh22/etl-with-luigi.git
    ```
-2. Run docker compose where the data sales store with this command.
+2. Run docker compose to access database where the data from team Sales is stored with this command.
    ```
    cd dockerfile
    docker compose up -d
    ```
+3. 
    
 
 
