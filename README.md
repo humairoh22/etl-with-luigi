@@ -16,7 +16,7 @@ Create ETL pipeline to:
 - Load all data into one database PosgtreSQL.
 
 ## Pipeline Design
-
+![pipeline design](https://github.com/humairoh22/etl-with-luigi/blob/master/pic/pipeline.jpg)
 ## How To Run The Script?
 1. Clone the repository.
    ```
@@ -27,7 +27,7 @@ Create ETL pipeline to:
    cd dockerfile
    docker compose up -d
    ```
-3. activate virtual environment.
+3. Activate virtual environment.
    ```
    source venv/bin/activate
    ```
