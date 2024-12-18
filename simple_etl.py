@@ -101,7 +101,7 @@ class ScrapingData(luigi.Task) :
                     extract_news.append(get_data)
                     
                     #set time to delay when extract each news to avoid as a bot
-                    time.sleep(0.2)
+                    time.sleep(0.1)
             
             except Exception as e:
                 print(f"Error when parcing the article: {e}")
@@ -211,37 +211,22 @@ class LoadData(luigi.Task):
     def run(self):
 
         dwh_engine = dw_engine()
-        
-        sales_data = pd.read_csv(self.input()[0].path)
-        sales_data.insert(0, 'no_id', range(0, 0 + len(sales_data)))
-        sales_data = sales_data.set_index("no_id")
 
-        upsert(con = dwh_engine,
-               df=sales_data,
-               table_name="sales",
-               if_row_exists='update',
-               create_table=False)
-        
-        produk_data = pd.read_csv(self.input()[1].path)
-        produk_data.insert(0, 'no_id', range(0, 0 + len(produk_data)))
-        produk_data = produk_data.set_index("no_id")
+        table_name = ["sales", "products", "articlescrape"]
 
-        upsert(con = dwh_engine,
-               df=produk_data,
-               table_name="products",
-               if_row_exists='update',
-               create_table=False)
-        
-        scrape_data = pd.read_csv(self.input()[2].path)
-        scrape_data.insert(0, 'no_id', range(0, 0 + len(scrape_data)))
-        scrape_data = scrape_data.set_index('no_id')
+        for idx, tb_name in enumerate(table_name):
 
-        upsert(con = dwh_engine,
-            df=scrape_data,
-            table_name="articlescrape",
-            if_row_exists='update',
-            create_table=False)
+            data = pd.read_csv(self.input()[idx].path)
 
+            data.insert(0, "no_id", range(0, 0 + len(data)))
+
+            data = data.set_index("no_id")
+
+            #for insert or update data
+            upsert(con = dwh_engine, 
+                    df = data,
+                    table_name = tb_name,
+                    if_row_exists = "update")
 
 if __name__ == "__main__":
     luigi.build([ExtractSalesData(),
