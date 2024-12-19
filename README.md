@@ -31,11 +31,14 @@ Create ETL pipeline to:
    ```
    source venv/bin/activate
    ```
-4. Install depedencies to run the script.
+4. Install requirements for this project
    ```
    pip -r requirements.txt
    ```
-   
+5. Run the script.
+   ```
+   python simple_etl.py
+   ```
 
 
 
