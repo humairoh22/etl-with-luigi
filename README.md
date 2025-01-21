@@ -18,6 +18,12 @@ Create ETL pipeline to:
 ## Pipeline Design
 ![pipeline design](https://github.com/humairoh22/etl-with-luigi/blob/master/pic/pipeline.jpg)
 ## How To Run The Script?
+# Prerequisite
+Before running the script, ensure already installed:
+- WSL
+- Python
+- Crontab
+  
 1. Clone the repository.
    ```
    git clone https://github.com/humairoh22/etl-with-luigi.git
