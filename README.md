@@ -17,13 +17,14 @@ Create ETL pipeline to:
 
 ## Pipeline Design
 ![pipeline design](https://github.com/humairoh22/etl-with-luigi/blob/master/pic/pipeline.jpg)
-## How To Run The Script?
+## Installation Guide The Script
 **Prerequisite**
 
 Before running the script, ensure already installed:
 - WSL
+- Docker
 - Python
-- Crontab
+- Crontab (to run the script with schedule)
   
 1. Clone the repository.
    ```
@@ -34,18 +35,29 @@ Before running the script, ensure already installed:
    cd dockerfile
    docker compose up -d
    ```
-3. Activate virtual environment.
+3. Create virtual environment
+    ```
+    python3 -m venv yourvirtualname
+    ```
+4. Activate virtual environment.
    ```
-   source venv/bin/activate
+   source yourvirtualname/bin/activate
    ```
-4. Install requirements for this project
+5. Install requirements for this project
    ```
    pip -r requirements.txt
    ```
-5. Run the script.
+## Running the script using schedule
+1. Open wsl Terminal.
+2. Open crontab file by run this command in your terminal.
    ```
-   python simple_etl.py
+   crontab -e
    ```
+3. Add new line with following format:
+   ```
+   0 */4 * * */usr/bin/python /path/to/my_script.py
+   ```
+   It will run the script every 4 hours everyday.Replace the path based on location of your python script is stored.
 
 
 
